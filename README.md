@@ -9,6 +9,29 @@ Sistema completo de gestão de imóveis para aluguel, desenvolvido para controle
 
 > ⚠️ **Atenção: este é um ambiente 100% de demonstração.** Todos os imóveis, inquilinos, valores e contratos exibidos são fictícios, gerados apenas para fins de teste e apresentação do projeto. Nenhuma informação real está armazenada ou exposta aqui.
 
+## 📸 Screenshots
+
+### Tela de login
+![Tela de login](./screenshots/login.png)
+
+### Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+### Filtro — Assinados
+![Filtro assinados](./screenshots/filtro-assinados.png)
+
+### Filtro — Pendentes de assinatura
+![Filtro pendentes](./screenshots/filtro-pendentes.png)
+
+### Filtro — Vagos
+![Filtro vagos](./screenshots/filtro-vagos.png)
+
+### Histórico de reparos
+![Histórico de reparos](./screenshots/historico.png)
+
+### Cadastro de novo imóvel
+![Cadastro de imóvel](./screenshots/cadastro.png)
+
 ## 💡 Sobre o projeto
 
 O Vizi Imóveis resolve um problema comum de quem administra imóveis alugados de forma independente (sem imobiliária, ou com controle misto): saber rapidamente quais contratos estão em dia, quais estão vencendo, quais imóveis estão vagos, e ter um histórico organizado de reparos e custos de manutenção — tudo isso sem depender de planilhas soltas.
