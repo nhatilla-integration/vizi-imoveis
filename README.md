@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# 🏠 Vizi Imóveis
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistema completo de gestão de imóveis para aluguel, desenvolvido para controle de inquilinos, contratos e manutenções. Criado para uso real de administração de imóveis de uma família, com foco em simplicidade visual e automação de status.
 
-## Available Scripts
+## 🔗 Demonstração
 
-In the project directory, you can run:
+**Acesse:** https://gabionetta-imoveis.vercel.app/
+**Senha de acesso:** `gabionetta2026`
 
-### `npm start`
+> ⚠️ **Atenção: este é um ambiente 100% de demonstração.** Todos os imóveis, inquilinos, valores e contratos exibidos são fictícios, gerados apenas para fins de teste e apresentação do projeto. Nenhuma informação real está armazenada ou exposta aqui.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 💡 Sobre o projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O Vizi Imóveis resolve um problema comum de quem administra imóveis alugados de forma independente (sem imobiliária, ou com controle misto): saber rapidamente quais contratos estão em dia, quais estão vencendo, quais imóveis estão vagos, e ter um histórico organizado de reparos e custos de manutenção — tudo isso sem depender de planilhas soltas.
 
-### `npm test`
+## ⚙️ Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Cadastro de imóveis**: casa ou ponto comercial, podendo ficar vagos ou alugados
+- **Status automático do contrato**: 🟢 Em dia · 🟡 A vencer (≤30 dias) · 🔴 Vencido — calculado automaticamente pela data de vencimento, sem necessidade de atualização manual
+- **Status de assinatura**: Assinado / Pendente de assinatura
+- **Filtros por aba**: Todos, Assinados, Pendentes, Vagos
+- **Histórico de reparos**: registro por imóvel com data, valor e descrição de cada manutenção
+- **Imobiliária responsável**: campo opcional para imóveis administrados por terceiros
+- **Dashboard de métricas**: total de imóveis alugados, vagos, contratos a vencer/vencidos e receita mensal ativa consolidada
+- **Proteção por senha de acesso**: tela de login simples antes de liberar o sistema
+- **Modo demonstração automático**: roda com dados fictícios, sem precisar configurar banco de dados
+- **Sincronização em tempo real**: via Supabase Realtime, quando conectado a um banco de dados real
 
-### `npm run build`
+## 🛠️ Tecnologias utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **JavaScript (React)** — biblioteca principal para construção da interface, com componentização (Hooks como `useState`, `useMemo`) e gerenciamento de estado local
+- **Tailwind CSS** — estilização utilitária, responsável por todo o visual customizado (tema escuro, cores de status, responsividade)
+- **Supabase** — backend as a service, usado como banco de dados (PostgreSQL) e para sincronização em tempo real (Realtime)
+- **SQL** — script de criação de tabelas (`supabase_setup.sql`) para estruturar o banco de dados no Supabase
+- **Vercel** — plataforma de deploy e hospedagem do projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Como rodar localmente
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+npm start
+```
 
-### `npm run eject`
+Sem configurar nada, o app já roda em **modo demonstração**, com dados fictícios — é possível usar e testar tudo sem precisar de banco de dados.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔐 Variáveis de ambiente
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Copie o arquivo `.env.example` para `.env` e preencha:
+> Se as variáveis do Supabase não forem preenchidas, o app cai automaticamente em modo demonstração, com dados fictícios.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🗄️ Como conectar ao Supabase (dados reais e permanentes)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Crie uma conta gratuita em [supabase.com](https://supabase.com)
+2. Crie um novo projeto
+3. Vá em **SQL Editor** → New query → cole o conteúdo do arquivo `supabase_setup.sql` deste repositório → Run
+4. Vá em **Project Settings > API** e copie a **URL** e a **anon public key**
+5. Preencha o `.env` conforme acima
+6. Reinicie o app (`npm start`)
 
-## Learn More
+## ☁️ Deploy (Vercel)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install -g vercel
+vercel login
+vercel
+vercel --prod
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Configure as mesmas variáveis de ambiente em **Project Settings → Environment Variables** na Vercel.
 
-### Code Splitting
+## 🗺️ Roadmap futuro
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Autenticação multiusuário (para eventualmente atender mais de um dono de imóveis)
+- Notificação automática (email/WhatsApp) quando contrato entra em "a vencer"
+- Anexo de documentos do contrato
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Desenvolvido com carinho para a família Gabionetta 🏠 · Este é um projeto de demonstração — dados fictícios.
